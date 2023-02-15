@@ -91,4 +91,4 @@ stages:
               inputs:
                 SourceFolder: '$(Pipeline.Workspace)/drop/$(buildConfiguration)'
                 Contents: '*.zip'
-                TargetFolder: C:\temp'
+                TargetFolder: C:/test'
