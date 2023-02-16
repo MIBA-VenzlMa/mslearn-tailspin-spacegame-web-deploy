@@ -85,6 +85,10 @@ stages:
                 # Script to deploy the application to your non-Azure environment
                 # Replace with your own deployment script
                 echo "Deploying the application to CAD&PLM Testing environment"
-                unzip -o $(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip -d C:/test
-                cd C:/test
-                dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
+            # Uncomment the following lines if you need to copy any files to your deployment target
+            - task: CopyFiles@2
+              displayName: 'Copy files to deployment target'
+              inputs:
+                SourceFolder: '$(Pipeline.Workspace)/drop/$(buildConfiguration)'
+                Contents: '*.zip'
+                TargetFolder: C:/test/'
