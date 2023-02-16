@@ -72,7 +72,7 @@ stages:
     - deployment: Deploy
       pool:
         vmImage: 'ubuntu-20.04'
-      environment: CAD&PLM Agent
+      environment: CAD&PLM Testing
       variables:
       - group: Release
       strategy:
