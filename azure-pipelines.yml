@@ -83,6 +83,6 @@ stages:
               artifact: drop
             - script: |
                   echo "Deploying the application to CAD&PLM Testing environment"
-                  unzip -o $(System.ArtifactStagingDirectory)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip -d $(System.ArtifactStagingDirectory)/build/
-                  cd $(System.ArtifactStagingDirectory)/build/
+                  unzip -o $(Build.ArtifactStagingDirectory)/Tailspin.SpaceGame.Web.zip -d $(Build.ArtifactStagingDirectory)/build/
+                  cd $(Build.ArtifactStagingDirectory)/build/
                   dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
