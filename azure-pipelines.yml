@@ -4,7 +4,7 @@ trigger:
 variables:
   buildConfiguration: 'Release'
 
-  stages:
+stages:
   - stage: 'Build'
     displayName: 'Build the web application'
     jobs: 
@@ -83,7 +83,6 @@ variables:
               artifact: drop
             - script: |
                   echo "Deploying the application to CAD&PLM Testing environment"
-                  #cp -R $(System.ArtifactsDirectory)/drop/$(buildConfiguration)/*.zip $(System.ArtifactsDirectory)/build
                   unzip -o $(System.ArtifactsDirectory)/drop/$(buildConfiguration)/*.zip -d $(System.ArtifactsDirectory)/build/
                   cd $(System.ArtifactsDirectory)/build/
                   dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
