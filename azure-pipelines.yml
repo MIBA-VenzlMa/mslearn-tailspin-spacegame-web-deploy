@@ -82,13 +82,8 @@ stages:
             - download: current
               artifact: drop
             - script: |
-                # Script to deploy the application to your non-Azure environment
-                # Replace with your own deployment script
-                echo "Deploying the application to CAD&PLM Testing environment"
-            # Uncomment the following lines if you need to copy any files to your deployment target
-            - task: CopyFiles@2
-              displayName: 'Copy files to deployment target'
-              inputs:
-                SourceFolder: '$(Pipeline.Workspace)/drop/$(buildConfiguration)'
-                Contents: '*.zip'
-                TargetFolder: '$(Build.ArtifactStagingDirectory)'
+                  echo "Deploying the application to CAD&PLM Testing environment"
+                  unzip -o $(System.ArtifactsDirectory)/drop/$(buildConfiguration)/*.zip -d /path/to/destination/folder
+                  cp -R $(System.ArtifactsDirectory)/drop/$(buildConfiguration)/* C:/test/
+                  cd C:/test/
+                  dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
