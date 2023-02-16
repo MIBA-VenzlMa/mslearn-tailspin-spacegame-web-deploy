@@ -72,7 +72,7 @@ stages:
     - deployment: Deploy
       pool:
         vmImage: 'ubuntu-20.04'
-      environment: CAD&PLM Testing
+      environment: CAD&PLM Agent
       variables:
       - group: Release
       strategy:
@@ -91,4 +91,4 @@ stages:
               inputs:
                 SourceFolder: '$(Pipeline.Workspace)/drop/$(buildConfiguration)'
                 Contents: '*.zip'
-                TargetFolder: C:/test/'
+                TargetFolder: '$(Build.ArtifactStagingDirectory)'
