@@ -70,8 +70,6 @@ stages:
     dependsOn: Build
     jobs:
     - deployment: Deploy
-      pool:
-        vmImage: 'ubuntu-20.04'
       environment: CAD&PLM Testing
       variables:
       - group: Release
@@ -83,7 +81,6 @@ stages:
               artifact: drop
             - script: |
                   echo "Deploying the application to CAD&PLM Testing environment"
-                  cd ~
-                  unzip -o ./drop/Tailspin.SpaceGame.Web.zip -d C:/test
                   cd C:/test
+                  mkdir C:/test/hello
                   dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
