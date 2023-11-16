@@ -81,6 +81,5 @@ stages:
               artifact: drop
             - script: |
                   echo "Deploying the application to CAD&PLM Testing environment"
-                  cd C:/test
-                  mkdir C:/test/hello
+                  mkdir /test/hello
                   dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
