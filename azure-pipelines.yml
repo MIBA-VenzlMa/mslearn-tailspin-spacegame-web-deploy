@@ -70,7 +70,7 @@ stages:
     dependsOn: Build
     jobs:
     - deployment: Deploy
-      environment: CAD&PLM Testing
+      environment: CAD_PLM_Testing
       variables:
       - group: Release
       strategy:
@@ -80,6 +80,5 @@ stages:
             - download: current
               artifact: drop
             - script: |
-                  echo "Deploying the application to CAD&PLM Testing environment"
-                  mkdir /test/hello
+                  echo "Deploying the application to CAD_PLM_Testing environment"
                   dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
