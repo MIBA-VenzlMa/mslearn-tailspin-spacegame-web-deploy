@@ -70,7 +70,7 @@ stages:
     dependsOn: Build
     jobs:
     - deployment: Deploy
-      environment: CAD_PLM_Testing
+      environment: CADPLM - Prod
       variables:
       - group: Release
       strategy:
